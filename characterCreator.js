@@ -65,10 +65,26 @@ class Character {
   
   let shandris = new Character (`Shandris Feathermoon`, `Night Elf`, `Hunter`, 25, 50, [` (1) mana potion`, ` (1) call of the wild`, ` (100) iron-tipped arrows`, ` (4) chunk of bread`], `Studded Crossbow`, 125)
   
+  function handshake (character1, character2) {
+    console.log(`${character1.name} shakes ${character2.name}'s hand`)
+  }
+  
+  function battle (character1, character2) {
+    console.log(`${character1.name} and ${character2.name} have entered into a duel.`)
+    while (character1.healthPoints >= 0 && character2.healthPoints >= 0){
+    character1.attack(character1.attackLevel);
+    character2.takeDamage(character1.attackLevel);
+    character2.attack(character2.attackLevel);
+    character1.takeDamage(character2.attackLevel)}
+    //FIX: this loop needs to end when one character health hits zero
+  }
+  
+  // handshake(grayson, marion)
+  // battle(grimand, grayson)
   
   // Command Tests //
-  grimand.greeting()
-  grayson.greeting()
+//   grimand.greeting()
+//   grayson.greeting()
   // Grimand.examine()
   // Grimand.attack()
   // Grimand.takeDamage(50)
