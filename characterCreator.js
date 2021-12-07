@@ -71,12 +71,16 @@ class Character {
   
   function battle (character1, character2) {
     console.log(`${character1.name} and ${character2.name} have entered into a duel.`)
-    while (character1.healthPoints >= 0 && character2.healthPoints >= 0){
+    while (character1.healthPoints > 0 && character2.healthPoints > 0){
     character1.attack(character1.attackLevel);
     character2.takeDamage(character1.attackLevel);
     character2.attack(character2.attackLevel);
     character1.takeDamage(character2.attackLevel)}
-    //FIX: this loop needs to end when one character health hits zero
+    if (character1.healthPoints <= 0){
+      console.log(`${character1.name} has died.`)
+    } else if (character2.healthPoints <= 0){
+      console.log (`${character2.name} has died.`)
+    }
   }
   
   // handshake(grayson, marion)
